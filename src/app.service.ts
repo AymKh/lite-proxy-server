@@ -5,6 +5,8 @@ import { Resend } from 'resend';
 @Injectable()
 export class AppService {
   sendEmail(API_KEY: string): any {
+    console.log("SENDING TEMPLATE EMAIL..");
+
     const resend = new Resend(API_KEY);
     resend.emails.send({
       from: 'onboarding@resend.dev',
@@ -15,7 +17,8 @@ export class AppService {
   }
 
   sendCustomEmail(payload: any): any {
-    const resend = new Resend(payload.key);
+    console.log("SENDING CUSTOM EMAIL..",);
+    const resend = new Resend(payload.API_KEY);
     const DUMMY_EMAIL = {
       from: payload.EMAIL.from,
       to: payload.EMAIL.to,
